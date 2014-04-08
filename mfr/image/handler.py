@@ -14,10 +14,11 @@ except ImportError:
     exporters = {}
 
 EXTENSIONS = [
-    '.jpg',
+    '.jpeg',
     '.png',
+    '.jpg',
     '.tiff',
-    # TODO: finish this list
+    '.bmp',
 ]
 
 
