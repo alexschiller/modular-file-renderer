@@ -70,6 +70,7 @@ class MFRConfig:
                 mfr_docx.Handler,
                 mfr_rst.Handler,
                 mfr_tabular.CsvHandler,
+                mfr_tabular.ExcelHandler,
                 mfr_code_pygments.Handler]
 
 # example how module-level configuration

@@ -101,7 +101,6 @@ def render_tabular(fp, returned, *args, **kwargs):
         syncColumnCellResize: true
     };
     }
-
     var grid = new Slick.Grid("#mfrGrid", rows, columns, options);
 })();
         </script>
