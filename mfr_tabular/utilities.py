@@ -79,8 +79,6 @@ def render_tabular(fp, returned, *args, **kwargs):
     dataframe = returned['dataframe']
     columns = json.dumps(column_population(dataframe))
     rows = json.dumps(row_population(dataframe))
-    print rows
-    print columns
     content = """
         <div id="mfrGrid" style="width: 600px; height: 600px;"></div>
         <script>
