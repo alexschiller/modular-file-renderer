@@ -47,9 +47,9 @@ def row_population(dataframe):
     :param dataframe:
     :return: JSON representation of rows
     """
-    #todo this needs to be reformatted NOT to use the row names as a variable
+    #todo (ajs) this needs to be reformatted NOT to use the row names as a variable
     # to iterate over, this will break spss files that need rownames
-    #todo right now it is renaming the rows in [r] when it reads it in
+    #todo (ajs) right now it is renaming the rows in [r] when it reads it in
     fields = dataframe.keys()
     rows = []
     for n in range(len(dataframe[fields[0]])):
@@ -82,34 +82,18 @@ def render_tabular(fp, returned, *args, **kwargs):
     content = """
         <div id="mfrGrid" style="width: 600px; height: 600px;"></div>
         <script>
-(function(){
-    var columns = %s
-    var rows = %s
-    if(columns.length < 9){
-    var options = {
-        enableCellNavigation: true,
-        enableColumnReorder: false,
-        forceFitColumns: true,
-        syncColumnCellResize: true
-    };
-    }else{
-    var options = {
-        enableCellNavigation: true,
-        enableColumnReorder: false,
-        syncColumnCellResize: true
-    };
-    }
-    var grid = new Slick.Grid("#mfrGrid", rows, columns, options);
-})();
+        var mfr_tabular = {columns: %s,
+        rows: %s};
         </script>
     """ % (columns, rows)
 
     if core_config['INCLUDE_STATIC']:
         link = get_stylesheets()
         js = get_js()
-        return '\n'.join([link,js, content])
+        return '\n'.join([link, content, js, ])
     else:
         return content
+
 
 def get_stylesheets():
     return """
@@ -122,9 +106,10 @@ def get_stylesheets():
 
 def get_js():
     return """
-        <script src="{static_url}/mfr_tabular/js/base_tabular.js"></script>
         <script src="{static_url}/mfr_tabular/js/jquery-1.7.min.js"></script>
         <script src="{static_url}/mfr_tabular/js/jquery.event.drag-2.2.js"></script>
         <script src="{static_url}/mfr_tabular/js/slick.core.js"></script>
         <script src="{static_url}/mfr_tabular/js/slick.grid.js"></script>
+        <script src="{static_url}/mfr_tabular/js/base_tabular.js"></script>
+
         """.format(static_url=core_config['STATIC_URL'])
