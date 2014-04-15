@@ -1,7 +1,3 @@
-//var mfr_tabular = {columns: "that", rows: "this"};
-
-
-
 (function(){
     var columns = mfr_tabular.columns
     var rows = mfr_tabular.rows

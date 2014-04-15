@@ -1,5 +1,4 @@
 from mfr.core import FileHandler, get_file_extension
-from mfr_tabular.render_csv import render_csv
 
 EXTENSIONS = [
     '.csv',
